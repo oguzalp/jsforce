@@ -2,7 +2,7 @@
 
 Salesforce API Library for JavaScript applications (both on web browser and Node.js)
 
-[![Build Status](https://secure.travis-ci.org/jsforce/jsforce.png?branch=travis-ci)](http://travis-ci.org/jsforce/jsforce)
+[![Build Status](https://secure.travis-ci.org/jsforce/jsforce.png)](http://travis-ci.org/jsforce/jsforce)
 
 ## Overview
 
@@ -27,9 +27,9 @@ Suported Salesforce APIs are :
 
 See document in http://jsforce.github.io/ .
 
-## Change History
+## Releases
 
-See [changelog](CHANGELOG.md).
+See [Releases](https://github.com/jsforce/jsforce/releases).
 
 ## License
 

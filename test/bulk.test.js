@@ -182,6 +182,38 @@ if (testUtils.isNodeJS) {
     });
   });
 
+  /**
+   *
+   */
+  describe("bulk query and output to file", function() {
+    it("should get a record stream and file output", function(done) {
+      var file = __dirname + "/data/Account_export.csv";
+      var fstream = fs.createWriteStream(file);
+      var records = [];
+      async.waterfall([
+        function(next) {
+          conn.bulk.query("SELECT Id, Name, NumberOfEmployees FROM Account")
+            .on('record', function(rec) { records.push(rec); })
+            .on('error', function(err) { next(err); })
+            .on('end', function() { next(null, records); })
+            .stream().pipe(fstream);
+        }
+      ], function(err, records) {
+        if (err) { throw err; }
+        assert.ok(_.isArray(records) && records.length > 0);
+        for (var i=0; i<records.length; i++) {
+          var rec = records[i];
+          assert.ok(_.isString(rec.Id));
+          assert.ok(_.isString(rec.Name));
+          assert.ok(_.isString(rec.NumberOfEmployees)); // no type conversion from CSV stream to record
+        }
+        var data = fs.readFileSync(file, "utf-8");
+        assert.ok(data);
+        var lines = data.replace(/[\r\n]+$/, '').split(/[\r\n]/);
+        assert.ok(lines.length === records.length + 1);
+      }.check(done));
+    });
+  });
 }
 /*------------------------------------------------------------------------*/
 
@@ -194,7 +226,8 @@ if (testUtils.isNodeJS) {
       for (var i=0; i<200; i++) {
         records.push({
           Name: 'New Bulk Account #'+(i+1),
-          NumberOfEmployees: 300 * (i+1) 
+          BillingState: 'CA',
+          NumberOfEmployees: 300 * (i+1)
         });
       }
       conn.bulk.load("Account", "insert", records, done);
@@ -203,7 +236,10 @@ if (testUtils.isNodeJS) {
     it("should return updated status", function(done) {
       conn.sobject('Account')
           .find({ Name : { $like : 'New Bulk Account%' }})
-          .update({ Name : '${Name} (Updated)' }, function(err, rets) {
+          .update({
+            Name : '${Name} (Updated)',
+            BillingState: null
+          }, function(err, rets) {
             if (err) { throw err; }
             assert.ok(_.isArray(rets));
             assert.ok(rets.length === 200);
@@ -218,7 +254,7 @@ if (testUtils.isNodeJS) {
     describe("then query updated records", function() {
       it("should return updated records", function(done) {
         conn.sobject('Account')
-            .find({ Name : { $like : 'New Bulk Account%' }}, 'Id, Name', function(err, records) {
+            .find({ Name : { $like : 'New Bulk Account%' }}, 'Id, Name, BillingState', function(err, records) {
               if (err) { throw err; }
               assert.ok(_.isArray(records));
               assert.ok(records.length === 200);
@@ -227,6 +263,7 @@ if (testUtils.isNodeJS) {
                 record = records[i];
                 assert.ok(_.isString(record.Id));
                 assert.ok(/\(Updated\)$/.test(record.Name));
+                assert.ok(record.BillingState === null);
               }
             }.check(done));
       });
