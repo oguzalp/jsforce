@@ -173,7 +173,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line281">line 281</a>
+        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line289">line 289</a>
     </li></ul></dd>
     
     
@@ -225,7 +225,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="check"><span class="type-signature"></span>check<span class="signature">(<span class="optional">callback</span>)</span><span class="type-signature"> &rarr; {<a href="Promise.html">Promise</a>.&lt;Bulk~BatchInfo>}</span></h4>
+    <h4 class="name" id="check"><span class="type-signature"></span>check<span class="signature">(<span class="optional">callback</span>)</span><span class="type-signature"> &rarr; {<a href="Promise.html">Promise</a>.&lt;<a href="Bulk.html#BatchInfo">Bulk~BatchInfo</a>>}</span></h4>
     
     
 </dt>
@@ -233,7 +233,7 @@
     
     
     <div class="description">
-        Check batch status in server
+        Check the latest batch status in server
     </div>
     
 
@@ -275,7 +275,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#Callback">Callback</a>.&lt;Bulk~BatchInfo></span>
+<span class="param-type"><a href="global.html#Callback">Callback</a>.&lt;<a href="Bulk.html#BatchInfo">Bulk~BatchInfo</a>></span>
 
 
             
@@ -326,7 +326,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line421">line 421</a>
+        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line429">line 429</a>
     </li></ul></dd>
     
     
@@ -358,7 +358,7 @@
 	</dt>
 	<dd>
 		
-<span class="param-type"><a href="Promise.html">Promise</a>.&lt;Bulk~BatchInfo></span>
+<span class="param-type"><a href="Promise.html">Promise</a>.&lt;<a href="Bulk.html#BatchInfo">Bulk~BatchInfo</a>></span>
 
 
 	</dd>
@@ -670,7 +670,7 @@
             
             
             
-            <td class="description last">Input source for batch operation. Accepts array of records, CSv string, and CSV data input stream.</td>
+            <td class="description last">Input source for batch operation. Accepts array of records, CSV string, and CSV data input stream in insert/update/upsert/delete/hardDelete operation, SOQL string in query operation.</td>
         </tr>
 	
 	
@@ -683,7 +683,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#Callback">Callback</a>.&lt;Array.&lt;<a href="global.html#RecordResult">RecordResult</a>>></span>
+<span class="param-type"><a href="global.html#Callback">Callback</a>.&lt;(Array.&lt;<a href="global.html#RecordResult">RecordResult</a>>|Array.&lt;BatchResultInfo>)></span>
 
 
             
@@ -734,7 +734,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line304">line 304</a>
+        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line312">line 312</a>
     </li></ul></dd>
     
     
@@ -1357,7 +1357,7 @@ https://github.com/joyent/node/blob/master/lib/stream.js
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line449">line 449</a>
+        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line463">line 463</a>
     </li></ul></dd>
     
     
@@ -1459,7 +1459,7 @@ https://github.com/joyent/node/blob/master/lib/stream.js
         
             
 <dt>
-    <h4 class="name" id="retrieve"><span class="type-signature"></span>retrieve<span class="signature">(<span class="optional">callback</span>)</span><span class="type-signature"> &rarr; {<a href="Promise.html">Promise</a>.&lt;(Array.&lt;<a href="global.html#RecordResult">RecordResult</a>>|Array.&lt;Bulk~BatchResultReference>)>}</span></h4>
+    <h4 class="name" id="retrieve"><span class="type-signature"></span>retrieve<span class="signature">(<span class="optional">callback</span>)</span><span class="type-signature"> &rarr; {<a href="Promise.html">Promise</a>.&lt;(Array.&lt;<a href="global.html#RecordResult">RecordResult</a>>|Array.&lt;<a href="Bulk.html#BatchResultInfo">Bulk~BatchResultInfo</a>>)>}</span></h4>
     
     
 </dt>
@@ -1509,7 +1509,7 @@ https://github.com/joyent/node/blob/master/lib/stream.js
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#Callback">Callback</a>.&lt;Array.&lt;<a href="global.html#RecordResult">RecordResult</a>>></span>
+<span class="param-type"><a href="global.html#Callback">Callback</a>.&lt;(Array.&lt;<a href="global.html#RecordResult">RecordResult</a>>|Array.&lt;<a href="Bulk.html#BatchResultInfo">Bulk~BatchResultInfo</a>>)></span>
 
 
             
@@ -1560,7 +1560,7 @@ https://github.com/joyent/node/blob/master/lib/stream.js
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line493">line 493</a>
+        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line509">line 509</a>
     </li></ul></dd>
     
     
@@ -1592,7 +1592,7 @@ https://github.com/joyent/node/blob/master/lib/stream.js
 	</dt>
 	<dd>
 		
-<span class="param-type"><a href="Promise.html">Promise</a>.&lt;(Array.&lt;<a href="global.html#RecordResult">RecordResult</a>>|Array.&lt;Bulk~BatchResultReference>)></span>
+<span class="param-type"><a href="Promise.html">Promise</a>.&lt;(Array.&lt;<a href="global.html#RecordResult">RecordResult</a>>|Array.&lt;<a href="Bulk.html#BatchResultInfo">Bulk~BatchResultInfo</a>>)></span>
 
 
 	</dd>
@@ -1864,7 +1864,7 @@ Delegate to deferred promise, return promise instance for batch result
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line360">line 360</a>
+        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line368">line 368</a>
     </li></ul></dd>
     
     
@@ -1934,7 +1934,7 @@ Call "then" using given node-style callback function
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line372">line 372</a>
+        <a href="bulk.js.html">api/bulk.js</a>, <a href="bulk.js.html#line380">line 380</a>
     </li></ul></dd>
     
     
@@ -1981,7 +1981,7 @@ Call "then" using given node-style callback function
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Wed Sep 24 2014 21:52:26 GMT+0900 (JST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Wed Sep 24 2014 22:30:46 GMT+0900 (JST)
 </footer>
 
 <script> prettyPrint(); </script>
